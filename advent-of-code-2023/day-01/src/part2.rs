@@ -19,15 +19,13 @@ pub fn process(
         .inspect(|line| {
             dbg!(line);
         })
-        .into_iter()
         .map(|line| {
             let mut num = line.chars().filter_map(|c| c.to_digit(10));
             let first = num.next().unwrap();
             let last = if let Some(n) = num.last(){
                 n
             } else { first};
-            let line = first*10+last;
-            line
+            first*10+last
         })
         .sum::<u32>();
         Ok(output.to_string())
@@ -50,3 +48,6 @@ zoneight234
         Ok(())
     }
 }
+
+
+
