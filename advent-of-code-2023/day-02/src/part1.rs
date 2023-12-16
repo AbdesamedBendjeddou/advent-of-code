@@ -1,10 +1,10 @@
-
 use nom::{
     bytes::complete::{tag, take_while1},
     character::complete::digit1,
     combinator::map_res,
     multi::separated_list1,
-    sequence::preceded, Finish, IResult,
+    sequence::preceded,
+    Finish, IResult,
 };
 
 use crate::custom_error::AocError;
@@ -53,7 +53,7 @@ impl Cube {
             "red" => Cube::Red(revealed.parse::<u32>().unwrap()),
             "green" => Cube::Green(revealed.parse::<u32>().unwrap()),
             "blue" => Cube::Blue(revealed.parse::<u32>().unwrap()),
-            _ => panic!("")
+            _ => panic!(""),
         }
     }
     fn le_max_cube(&self) -> bool {
@@ -69,7 +69,7 @@ impl Cube {
 pub fn process(input: &str) -> miette::Result<String, AocError> {
     let output = input
         .lines()
-        .filter_map(|line| process_line(line).finish().ok())
+        .filter_map(|line| process_line(line.trim()).finish().ok())
         .map(|output| output.1)
         .sum::<u32>();
     Ok(output.to_string())
@@ -79,7 +79,7 @@ fn process_line(line: &str) -> IResult<&str, u32> {
     let mut parser = preceded(tag("Game "), map_res(digit1, str::parse::<u32>));
     let (game_input, id) = parser(line)?;
     let game = game(game_input);
-    let res = game.and_then(|(_, game)| {
+    game.and_then(|(_, game)| {
         if game.is_possible() {
             Ok((game_input, id))
         } else {
@@ -88,8 +88,7 @@ fn process_line(line: &str) -> IResult<&str, u32> {
                 nom::error::ErrorKind::Verify,
             )))
         }
-    });
-    res
+    })
 }
 
 fn game(input: &str) -> IResult<&str, Game> {
