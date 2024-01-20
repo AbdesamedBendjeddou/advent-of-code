@@ -14,6 +14,7 @@ struct Game {
 }
 
 impl Game {
+    
     fn from(rounds: Vec<Round>) -> Self {
         Self { rounds }
     }
