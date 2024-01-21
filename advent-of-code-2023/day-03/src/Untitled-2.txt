@@ -1,0 +1,34 @@
+
+
+
+
+
+
+algorithm course
+C book 17 to 22
+CMU-213 1 to 4 + dan Sophomoric Parallelism => C book
+Networks 1 to 5 + beej => C book
+seven database in 7 days + postgres
+revisitng programming languges abc
+
+
+Exercism
+shuttle CH 2023
+rust exercises like lifetimekata and others in do section
+Tokio Tuto
+AoC 2023 + some early years => Algorithm
+codewars => Algorithm
+leetcode/neetcode => Algorithm
+
+twitter project => Rust Web books + AoC+ CH2023
+chip8 + emul projects => CMU-213 + AoC + CH2023
+
+programming rust 12 to 17 + 21
+Rust web books => programming rust
+rust in action 
+command-line rust book
+black hat rust => rust web books
+
+
+1 article/day => rust web books
+crust of rust...etc => tiwitter project + chip8 and emul
